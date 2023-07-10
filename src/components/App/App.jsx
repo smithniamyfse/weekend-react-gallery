@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 // client-side to communicate (make HTTP requests) with the server-side (SQL database)
 import axios from "axios";
 import GalleryList from "../GalleryList/GalleryList.jsx";
-import Header from '../Header/Header.jsx';
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import "./App.css";
 
 // ** App.js represents the overall application or site **
@@ -39,11 +40,12 @@ function App() {
 
   return (
     <div className="App">
-<Header />
+      <Header />
       <GalleryList
         galleryList={galleryList}
         fetchGalleryItems={fetchGalleryItems}
       />
+      <Footer />
     </div>
   );
 }
