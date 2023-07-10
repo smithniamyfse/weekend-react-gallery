@@ -8,9 +8,9 @@
 //     - [x] a. Pass it the individual gallery item via `props`.
 //     - [x] b. Update the `GalleryList` to use this component to display an image
 //     - [x] c. Swap the image with the description on click. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
-//     - [] d. Display the number likes for each item and include a like button.
-//     - [] e. When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
-//     - [] f. Update the gallery each time a like button is clicked.
+//     - [x] d. Display the number likes for each item and include a like button.
+//     - [x] e. When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
+//     - [x] f. Update the gallery each time a like button is clicked.
 
 import { useState } from "react";
 import axios from "axios";
@@ -18,7 +18,6 @@ import "./GalleryItem.css";
 
 function GalleryItem({ galleryItem, fetchGalleryItems }) {
   const [showImage, setShowImage] = useState(true);
-  const [likedImage, setLikedImage] = useState(true);
 
   const likeImage = () => {
     console.log("in likeImage: ");
