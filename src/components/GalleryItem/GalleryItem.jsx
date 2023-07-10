@@ -5,17 +5,20 @@
 
 // TODO: `GalleryItem.jsx` COMPONENT //
 // - [x] 3. Create a new **component** called `GalleryItem.jsx`
-//     - [] a. Pass it the individual gallery item via `props`.
-//     - [] b. Update the `GalleryList` to use this component to display an image
+//     - [x] a. Pass it the individual gallery item via `props`.
+//     - [x] b. Update the `GalleryList` to use this component to display an image
 //     - [] c. Swap the image with the description on click. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
 //     - [] d. Display the number likes for each item and include a like button.
 //     - [] e. When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
 //     - [] f. Update the gallery each time a like button is clicked.
 
+import { useState } from 'react';
 import axios from "axios";
 import "./GalleryItem.css";
 
 function GalleryItem({ galleryItem }) {
+    const [showImage, setShowImage] = useState(true);
+
   const likeImage = () => {
     axios
       .put(`/gallery/like/${galleryItem.id}`)
@@ -28,20 +31,36 @@ function GalleryItem({ galleryItem }) {
       });
   };
 
+  const toggleImageDescription = () => {
+    setShowImage(!showImage);
+  };
+
+
   return (
     <>
       <div className="gallery-item-container">
-        <p>
+
+      <div className="image-container">
+         {/* Used conditional rendering to swap the image with the description on click. */}
+        {showImage ? (
           <img
             src={process.env.PUBLIC_URL + "/" + galleryItem.path}
             alt={galleryItem.description}
+            onClick={toggleImageDescription}
           />
-        </p>
-        {/* If an image has been liked, display text */}
-        {galleryItem.likes && <button onClick={likeImage}>Love it!</button>}
+        ) : (
+          <p className="image-description" onClick={toggleImageDescription}>
+            {galleryItem.description}
+          </p>
+        )}
+      </div>
+        <button onClick={likeImage}>Love it!</button>
+        {/* {galleryItem.likes && } */}
       </div>
     </>
   );
 }
 
 export default GalleryItem;
+
+
