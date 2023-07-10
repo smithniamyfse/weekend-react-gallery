@@ -50,10 +50,10 @@ function GalleryItem({ galleryItem, fetchGalleryItems }) {
         {/* When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`. */}
         {/* Update the gallery each time a like button is clicked. */}
         <div className="like-button-container">
-          <button onClick={likeImage}>Like</button>
+          <button className="like-btn" onClick={likeImage}>💚 Like</button>
         </div>
         <div className="container-liked-text">
-          {galleryItem.likes} people liked this!
+          <span className="count-text">{galleryItem.likes}</span> insect fans liked this.
         </div>
       </div>
     </>

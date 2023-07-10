@@ -1,25 +1,76 @@
 .gallery-item-container {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid #d81c1c;
+    border-radius: 0.5em;
+    background-color:  #819FA6;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-width: 325px;
+    max-height: 375px;
+
+  }
+  
+  .image-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
   
   .gallery-item-container img {
     max-width: 250px;
     height: 250px;
+    cursor: pointer;
   }
   
+  .image-description {
+    cursor: pointer;
+    color: #151B26;
+    font-size: 18px;
+    font-weight:500;
+  }
 
   .like-button-container {
     margin-top: 10px;
   }
+
+  button.like-btn {
+    margin-top: 10px;
+    cursor: pointer;
+    color: #151B26;
+    padding: 0.7em 1.7em;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 20px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #7bc48687,
+                -6px -6px 12px #ffffff30;
+  }
+
+
+  button.like-btn:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+                inset -4px -4px 12px #ffffff;
+   }
   
   .container-liked-text {
-    margin-top: 10px;
-    font-size: 14px;
+    color: #151B26;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .count-text {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: larger;
+    font-weight:bolder;
+    color: #00d21f;
   }
   

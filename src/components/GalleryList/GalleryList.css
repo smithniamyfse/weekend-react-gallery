@@ -2,5 +2,35 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     grid-template-rows: repeat(3, 1fr); 
-    gap: 50px; 
+    grid-gap: 50px; 
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    background-color: #71734C;
+}
+
+.gallery-list-header {
+    padding-top: 25px;
+    background-color: #71734C;
+    color: #151B26;
+}
+
+h3 {
+    font-family: 'Balsamiq Sans', cursive;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+.below-text {
+    font-size: 1.2em;
+}
+
+.instructions-text {
+    font-weight:600;
+    font-size: 1.2em;
+}
+
+.gallery-instructions {
+    font-size: 18px;
 }
