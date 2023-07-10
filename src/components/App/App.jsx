@@ -10,7 +10,7 @@ import "./App.css";
 // ** App.js represents the overall application or site **
 // App.js is the *top level component* responsible for fetching data
 function App() {
-  const [galleryList, setGalleryList] = useState([]);
+  const [ galleryList, setGalleryList ] = useState([]);
 
   // Function to get the Gallery Items from the server/database
   const fetchGalleryItems = () => {

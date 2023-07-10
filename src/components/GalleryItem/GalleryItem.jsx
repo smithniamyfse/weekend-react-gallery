@@ -1,64 +1,47 @@
-// ** GalleryItem.jsx represents a single image in the gallery 
-// ** with the ability to click the image 
-// ** to toggle between image and description 
+// ** GalleryItem.jsx represents a single image in the gallery
+// ** with the ability to click the image
+// ** to toggle between image and description
 // ** as well as the ability to like an image ** //
 
-import axios from 'axios';
-import './GalleryItem.css'
+// TODO: `GalleryItem.jsx` COMPONENT //
+// - [x] 3. Create a new **component** called `GalleryItem.jsx`
+//     - [] a. Pass it the individual gallery item via `props`.
+//     - [] b. Update the `GalleryList` to use this component to display an image
+//     - [] c. Swap the image with the description on click. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
+//     - [] d. Display the number likes for each item and include a like button.
+//     - [] e. When the like button is clicked, use `Axios` to update (`PUT`) the like count `/gallery/like/:id`.
+//     - [] f. Update the gallery each time a like button is clicked.
 
-function GalleryItem(props) {
-    // TODO: Add the ability to click the image and toggle between image / description
-    // TODO: Add a button to like an image
+import axios from "axios";
+import "./GalleryItem.css";
 
-    const likeImage = () => {
-        axios.put(`/gallery/like/${props.}`)
-    }
+function GalleryItem({ galleryItem }) {
+  const likeImage = () => {
+    axios
+      .put(`/gallery/like/${galleryItem.id}`)
+      .then((response) => {
+        // Update the gallery items after a like is successful
+        fetchGalleryItems();
+      })
+      .catch((error) => {
+        console.log("Error with PUTting like of image", error);
+      });
+  };
 
+  return (
+    <>
+      <div className="gallery-item-container">
+        <p>
+          <img
+            src={process.env.PUBLIC_URL + "/" + galleryItem.path}
+            alt={galleryItem.description}
+          />
+        </p>
+        {/* If an image has been liked, display text */}
+        {galleryItem.likes && <button onClick={likeImage}>Love it!</button>}
+      </div>
+    </>
+  );
 }
 
-
-
-/*
-import axios from 'axios';
-import './Creature.css';
-
-//** props: {
-    creature: 
-    fetchCreatures:
-}
-
-function Creature(props) {
-    //**props.creature = {
-                   id: 
-                   name:
-                   origin:
-                   favorite:    
-               }
-
-
-   const favoriteCreature = () => {
-       axios.put(`/creature/${props.creature.id}`)
-       .then(response =>{
-           props.fetchCreatures();
-       }).catch(error => {
-           console.log('error with favorite creature: ', error);
-       })
-   };
-   
-   return (
-       <div className='creature-container'> 
-           <p className='creature-name'>{props.creature.name}</p> 
-           <p>{props.creature.origin}</p>
-           //**If creature has been favorited, display text instead of the button
-           { props.creature.favorite ?
-               <p>One of my faves!</p> :
-               <button onClick={favoriteCreature}>❤️</button>
-               }
-           {props.creature.favorite && <div>🦄</div>}
-       </div>
-   )
-}
-
-export default Creature;
-
-*/
+export default GalleryItem;

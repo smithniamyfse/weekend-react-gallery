@@ -7,28 +7,55 @@
     - [] c. Make GalleryItems
 */
 
-import GalleryItem from '../GalleryItem/GalleryItem.jsx';
+import GalleryItem from "../GalleryItem/GalleryItem.jsx";
 
-function GalleryList({ galleryList, fetchGalleryItems }) {
+// const images = [
+//   { src: require('../../images/insect_1.jpeg'), alt: 'Insect 1' },
+//   { src: require('../../images/insect_2.jpeg'), alt: 'Insect 2' },
+//   { src: require('../../images/insect_3.jpeg'), alt: 'Insect 3' },
+// ];
+
+function GalleryList({ galleryList }) {
   return (
-    // This is where we'll display a galleryItem component for every image in the list
     <>
-      {galleryList.map((galleryItem) => {
-        /* 
-          galleryItem = {
-            id:
-            path:
-            description:
-            likes:
-          } 
-        */
-        return (<GalleryItem galleryItem={galleryItem} fetchGalleryItems={fetchGalleryItems} />) // GalleryItem({ galleryItem: galleryItem })
-      })}
+      <ul>
+        {galleryList.map((galleryItem) => (
+          <GalleryItem key={galleryItem.id} galleryItem={galleryItem} />
+        ))}
+      </ul>
     </>
   );
 }
 
 export default GalleryList;
+
+
+// import GalleryItem from "../GalleryItem/GalleryItem.jsx";
+
+// function GalleryList({ galleryList }) {
+
+//   return (
+//     // This is where we'll display a galleryItem component for every image in the list
+//     <>
+//       <ul>
+//         {galleryList.map((galleryItem) => (
+//           /* 
+//           const galleryItem: {
+//               id: number;
+//               path: string;
+//               description: string;
+//               likes: number;
+//           }
+//         */
+//           <GalleryItem galleryItem={galleryItem} />
+//           // <GalleryItem key={galleryItem.id} galleryItem={galleryItem} />
+//         ))}
+//       </ul>
+//     </>
+//   );
+// }
+
+// export default GalleryList;
 
 /*
       return (
@@ -39,4 +66,41 @@ export default GalleryList;
           ))}
         </ul>
         );
+*/
+
+/*
+
+    function CreatureList({ creatureList }) {
+        return (
+            <ul>
+                {
+                  creatureList.map(creatureItem => 
+                    <CreatureItem key={creatureItem.id} creature={creatureItem}/>
+                  )  
+                }
+            </ul>
+        );
+    }
+*/
+
+/*
+First try:
+
+  return (
+    // This is where we'll display a galleryItem component for every image in the list
+    <>
+      {galleryList.map((galleryItem) => {
+        //**
+          const galleryItem: {
+              id: number;
+              path: string;
+              description: string;
+              likes: number;
+          }
+    
+          return (<GalleryItem galleryItem={galleryItem} fetchGalleryItems={fetchGalleryItems} />) // GalleryItem({ galleryItem: galleryItem })
+        })}
+      </>
+    );
+
 */
