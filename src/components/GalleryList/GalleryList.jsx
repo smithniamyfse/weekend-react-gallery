@@ -8,18 +8,19 @@
 */
 
 import GalleryItem from "../GalleryItem/GalleryItem.jsx";
+import "./GalleryList.css";
 
 
 
 function GalleryList({ galleryList, fetchGalleryItems }) {
   return (
     <>
-      <ul>
+      <div className="gallery-list-container">
         {galleryList.map((galleryItem) => (
           <GalleryItem key={galleryItem.id} galleryItem={galleryItem} fetchGalleryItems={fetchGalleryItems}/>
           
         ))}
-      </ul>
+      </div>
     </>
   );
 }
