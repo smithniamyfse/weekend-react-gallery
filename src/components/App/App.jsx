@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 // axios is an additional library that enables the
 // client-side to communicate (make HTTP requests) with the server-side (SQL database)
 import axios from "axios";
-import GalleryList from '../GalleryList/GalleryList.jsx';
+import GalleryList from "../GalleryList/GalleryList.jsx";
+import Header from '../Header/Header.jsx';
 import "./App.css";
-
 
 // ** App.js represents the overall application or site **
 // App.js is the *top level component* responsible for fetching data
 function App() {
-  const [ galleryList, setGalleryList ] = useState([]);
+  const [galleryList, setGalleryList] = useState([]);
 
   // Function to get the Gallery Items from the server/database
   const fetchGalleryItems = () => {
@@ -33,17 +33,17 @@ function App() {
 
   // Call function so it runs once on component load
   // Similar to jQuery's document ready
-  useEffect( () => {
+  useEffect(() => {
     fetchGalleryItems();
-  }, [])
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Gallery of My Life</h1>
-      </header>
-      <p>Gallery goes here</p>
-      <GalleryList galleryList={galleryList} fetchGalleryItems={fetchGalleryItems}/>
+<Header />
+      <GalleryList
+        galleryList={galleryList}
+        fetchGalleryItems={fetchGalleryItems}
+      />
     </div>
   );
 }
