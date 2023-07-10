@@ -2,25 +2,22 @@
 // TODO: GalleryList COMPONENT //
 /* TODO: 
 - [x] 2. Create a new **component** for the `GalleryList`
-    - [] a. Pass it the gallery data stored in `App` via `props`
-    - [] b. Iterate (loop over) the list of gallery data
+    - [x] a. Pass it the gallery data stored in `App` via `props`
+    - [x] b. Iterate (loop over) the list of gallery data
     - [] c. Make GalleryItems
 */
 
 import GalleryItem from "../GalleryItem/GalleryItem.jsx";
 
-// const images = [
-//   { src: require('../../images/insect_1.jpeg'), alt: 'Insect 1' },
-//   { src: require('../../images/insect_2.jpeg'), alt: 'Insect 2' },
-//   { src: require('../../images/insect_3.jpeg'), alt: 'Insect 3' },
-// ];
 
-function GalleryList({ galleryList }) {
+
+function GalleryList({ galleryList, fetchGalleryItems }) {
   return (
     <>
       <ul>
         {galleryList.map((galleryItem) => (
-          <GalleryItem key={galleryItem.id} galleryItem={galleryItem} />
+          <GalleryItem key={galleryItem.id} galleryItem={galleryItem} fetchGalleryItems={fetchGalleryItems}/>
+          
         ))}
       </ul>
     </>
