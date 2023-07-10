@@ -31,6 +31,16 @@ h3 {
     font-size: 1.2em;
 }
 
+.clipboard-svg {
+    background-color: #d81c1c;
+    font-size: 1.2em;
+}
+
 .gallery-instructions {
     font-size: 18px;
+}
+
+.click-svg {
+   background-color: #d81c1c;
+   font-size: 22px;
 }
